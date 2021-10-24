@@ -1,0 +1,1 @@
+flag = "vuctf{relatively_speaking}"

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    /* space-mono-regular - latin */
+    @font-face {
+        font-family: 'Space Mono';
+        font-style: normal;
+        font-weight: 400;
+        src: local('Space Mono'), local('SpaceMono-Regular'),
+        url('/static/fonts/space-mono-v6-latin-regular.woff2') format('woff2'),
+        url('/static/fonts/space-mono-v6-latin-regular.woff') format('woff');
+    }
+    body {
+        background-color: #027a44;
+        color: navajowhite;
+        font-family: "Space Mono";
+        text-align: left;
+        background-image: url("/static/images/dice.png");
+        background-size: cover;
+        background-attachment: fixed;
+    }
+    input {
+        width: 80%;
+    }
+    pre {
+        border-color: #027a44d0;
+        border-style: solid;
+        font-family: monospace;
+        width: fit-content;
+        background: #027a44d0;
+        border-radius: 10px;
+        }
+    .footer {
+        font-size: xx-small;
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+    }
+    .small {
+      font-size: xx-small;
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Dicey Cyber ltd.</title>
+</head>
+<body>
+
+<h1>Welcome to the Dicey Cybersecurity Ltd employee database.</div></h1>
+    <h2>Search employees</h2>
+    <form method="post">
+        <h3>Enter the employee you would like to search for.</h3>
+        <table>
+        <table style="width: 1000px; border: none;">
+        <tbody>
+        <tr>
+          <td style="width: 80px;">Username:</td>
+          <td style="width: 700px;"><input type="text" name="user" required></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><input type="submit" value="Go" style="width: 100px"></td>
+        </tr>
+        </tbody>
+        </table>
+    </form>
+
+    {% if no_results %}
+    <br><h2>No results</h2>
+    {% endif %}
+    {% if results %}
+    <br>
+    <table style="width: 1000px; background-color: #027a44d0" border="1">
+    <tr style="background-color: rgb(9, 61, 9);">
+        <td style="width: 10%;">ID</td>
+        <td style="width: 30%;">First name</td>
+        <td style="width: 30%;">Last name</td>
+        <td style="width: 30%;">Email</td>
+    </tr>
+    {% for row in results %}
+    <tr>
+        <td>{{row[0]}}</td>
+        <td>{{row[1]}}</td>
+        <td>{{row[2]}}</td>
+        <td>{{row[3]}}</td>
+    </tr>
+
+    {% endfor %}
+    </table>
+    {% endif %}
+
+<div class="footer">WE TAKE A GAMBLE WITH YOUR SECURITY</div>
+</body>
+</html>
