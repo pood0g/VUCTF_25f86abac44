@@ -4,9 +4,9 @@
 
 void exit(int status);
 
-char flag[39] = "vuctf{wont_you_take_me_to_func_ytown?}\x00";
+const char flag[] = "vuctf{wont_you_take_me_to_func_ytown?}\x00";
 
-char *vuln(void)
+void vuln(void)
 {
     char buf[16];
     scanf("%s", buf);
