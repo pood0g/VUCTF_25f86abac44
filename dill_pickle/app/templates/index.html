@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="static/css/index.css">
+</head>
+
+<body>
+
+  <h1>Welcome to the Dicey Cybersecurity Ltd<br>
+    Employee database.</div>
+  </h1>
+
+  <h2>Please Login to continue</h2>
+
+  <button onclick="document.getElementById('login').style.display='block'" style="width:auto;">Login</button>
+
+  <div id="login" class="modal">
+
+    <form class="login_box animate" action="/login" method="post">
+      <div class="imgcontainer">
+        <img src="static/images/pickle-cookies.jpg" alt="Avatar" class="avatar">
+      </div>
+
+      <div class="container">
+        <label for="username"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="username" required>
+        <label for="password"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="password" required>
+
+        <button type="submit" style="background-color: #027a44;">Login</button>
+        <button type="button" onclick="document.getElementById('login').style.display='none'">Cancel</button>
+      </div>
+
+    </form>
+  </div>
+
+  <div class="footer">WE GAMBLE WITH YOUR SECURITY</div>
+
+  {% if message %}
+  <div id="message" class="modal" style="display: block;">
+    <div class="container" style="width: 400px; margin: auto;">
+      <div class="animate">
+        <p>{{ message }}</p>
+        <button type="button" onclick="document.getElementById('message').style.display='none'">OK</button>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+</body>
+
+</html>
