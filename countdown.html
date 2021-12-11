@@ -1,15 +1,44 @@
-var countDownDate = init.start * 1000;
-var x = setInterval(function() {
-  var now = new Date().getTime();
-  if (distance < 0) {
-    countDownDate = init.end * 1000;
-    document.getElementById("main_text").innerHTML = "The Victoria University 2021 CTF Will end in... ";
-  }
-  var distance = countDownDate - now;
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-  + minutes + "m " + seconds + "s ";
-}, 1000);
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Clock</title>
+</head>
+
+<body>
+    <p id=main_text></p>
+    <p id="clock"></p>
+
+    <script>
+
+        var init = {
+            'start': 1638309600,
+            'end': 1643634000,
+        }
+
+        var countDownDate = (((init.start * 1000) - new Date().getTime()) < 0) ? init.end * 1000 : init.start * 1000;
+        document.getElementById("main_text").innerHTML =
+            ((init.end * 1000) == countDownDate) ? "The ctf will end in:" : "The ctf will start in:"
+        document.getElementById("clock").innerHTML = "Please wait...";
+        const p = {
+            days: 1000 * 60 * 60 * 24,
+            hours: 1000 * 60 * 60,
+            minutes: 1000 * 60,
+            seconds: 1000
+        };
+        var x = setInterval(function () {
+            var now = new Date().getTime();
+            var distance = countDownDate - now;
+            var days = Math.floor(distance / p.days);
+            var hours = Math.floor((distance % p.days) / p.hours);
+            var minutes = Math.floor((distance % p.hours) / p.minutes);
+            var seconds = Math.floor((distance % p.minutes) / p.seconds);
+            document.getElementById("clock").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        }, 1000);
+    </script>
+</body>
+
+</html>
