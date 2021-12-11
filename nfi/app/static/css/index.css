@@ -1,0 +1,161 @@
+body {
+    background-color: #027a44;
+    color: navajowhite;
+    font-family: "Space Mono";
+    text-align: left;
+    background-image: url("/static/images/dice.png");
+    background-size: cover;
+    background-attachment: fixed;
+}
+@font-face {
+    font-family: 'Space Mono';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Space Mono'), local('SpaceMono-Regular'),
+    url('/static/fonts/space-mono-v6-latin-regular.woff2') format('woff2'),
+    url('/static/fonts/space-mono-v6-latin-regular.woff') format('woff');
+}
+.small {
+    font-size: xx-small;
+}
+.footer {
+    font-size: xx-small;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+.logout {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+}
+
+.toolbutton {
+    background-color: rgb(102, 102, 194);
+}
+
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #f44336;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+}
+
+img.avatar {
+    width: 40%;
+}
+
+.container {
+    padding: 16px;
+    background-color:#9e9c04;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+    padding-top: 60px;
+}
+
+
+.login_box {
+    background-color: #027a44;
+    margin: 5% auto 15% auto; 
+    border: 1px solid #888;
+    width: 400px; 
+}
+
+.message_box {
+    background-color: #027a44;
+    margin: 5% auto 15% auto; 
+    border: 1px solid #888;
+    width: 85%; 
+}
+
+.output {
+    white-space: pre-wrap;
+    background-color: black;
+    color: greenyellow;
+    border: 20px solid black;
+}
+
+.close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+}
+
+@keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+}
+
+@media screen and (max-width: 300px) {
+    span.psw {
+        display: block;
+        float: none;
+    }
+    .cancelbtn {
+        width: 100%;
+    }
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="static/css/index.css">
+</head>
+
+<body>
+
+  <h1>Welcome to Dicey Cybersecurity Ltd</h1>
+  <h1>Security Dashboard</h1>
+  <button class=logout onclick="location.href = '/logout'" style="width:auto;">Logout</button>
+  <h2>Tools available:</h2>
+  <script src="/static/js/dashboard.js"></script>
+  <button class=toolbutton onclick="runTool('/tools/ping')" style="width:auto;">ping</button><br>
+  <button class=toolbutton onclick="runTool('/tools/ip_addr')" style="width:auto;">ip addr</button><br>
+  <button class=toolbutton onclick="runTool('/tools/view_logs?logfile=logs/authlog.txt')" style="width:auto;">View logs</button>
+  
+  <div id="tool" class="modal">
+
+    <div class="message_box animate">
+      <div class="container">
+        <div id=output class=output></div>
+        <button type="button" onclick="document.getElementById('tool').style.display='none'">Ok</button>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="footer">WE GAMBLE WITH YOUR SECURITY</div>
+
+  {% if message %}
+  <div id="message" class="modal" style="display: block;">
+    <div class="container" style="width: 400px; margin: auto;">
+      <div class="animate">
+        <p>{{ message }}</p>
+        <button type="button" onclick="document.getElementById('message').style.display='none'">OK</button>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+</body>
+
+</html>
