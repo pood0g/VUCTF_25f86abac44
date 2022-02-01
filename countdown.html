@@ -18,26 +18,30 @@
             'start': 1638309600,
             'end': 1643634000,
         }
-
+        
         var countDownDate = (((init.start * 1000) - new Date().getTime()) < 0) ? init.end * 1000 : init.start * 1000;
-        document.getElementById("main_text").innerHTML =
-            ((init.end * 1000) == countDownDate) ? "The ctf will end in:" : "The ctf will start in:"
-        document.getElementById("clock").innerHTML = "Please wait...";
-        const p = {
-            days: 1000 * 60 * 60 * 24,
-            hours: 1000 * 60 * 60,
-            minutes: 1000 * 60,
-            seconds: 1000
-        };
-        var x = setInterval(function () {
-            var now = new Date().getTime();
-            var distance = countDownDate - now;
-            var days = Math.floor(distance / p.days);
-            var hours = Math.floor((distance % p.days) / p.hours);
-            var minutes = Math.floor((distance % p.hours) / p.minutes);
-            var seconds = Math.floor((distance % p.minutes) / p.seconds);
-            document.getElementById("clock").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-        }, 1000);
+        if (new Date().getTime() < init.end * 1000) {
+            document.getElementById("main_text").innerText =
+                ((init.end * 1000) == countDownDate) ? "The ctf will end in:" : "The ctf will start in:"
+            document.getElementById("clock").innerText = "Please wait...";
+            const p = {
+                days: 1000 * 60 * 60 * 24,
+                hours: 1000 * 60 * 60,
+                minutes: 1000 * 60,
+                seconds: 1000
+            };
+            var x = setInterval(function () {
+                var now = new Date().getTime();
+                var distance = countDownDate - now;
+                var days = Math.floor(distance / p.days);
+                var hours = Math.floor((distance % p.days) / p.hours);
+                var minutes = Math.floor((distance % p.hours) / p.minutes);
+                var seconds = Math.floor((distance % p.minutes) / p.seconds);
+                document.getElementById("clock").innerText = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+            }, 1000);
+        } else {
+            document.getElementById("main_text").innerText = `The ctf has ended, thank you for participating.`
+        }
     </script>
 </body>
 
